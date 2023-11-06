@@ -1,0 +1,35 @@
+COP 5536 Spring 2023
+Project Report
+
+Name: Sri Maruti Keerthana Ponnuru
+UFID: 3394-5082
+Email: ponnurus@ufl.edu
+
+File structure: 
+To implement the given assignment I have used the Python programming language.
+After unzipping the file, the list of source files are in the below format:
+
+      – LastName_FirstName file
+gatorTaxi.py
+rbtree.py
+minheap.py
+
+gatorTaxi.py:
+
+This is the main python file which is to be executed, in this file I have implemented the functions required to run the mentioned operations such as Insert, Print, Update trip, Cancel ride and Get next ride. Based on the action to be performed in the given input on that line those blocks of code should run to ensure this  I used switch case format to call the functions based on the keyword, to enable code readability.  Min heap is used to store (rideNumber, rideCost, tripDuration) ordered by rideCost when there are multiple triplets with the same rideCost, the one with the shortest tripDuration is given higher priority. The Red Black Tree is used to store (rideNumber, rideCost, tripDuration) triplets ordered by rideNumber. Pointers are maintained between corresponding nodes in the min-heap and Red Black Tree.
+
+Also, I have created Red Black Tree and Min Heap objects to call the functions implemented in those files. The inputs are read from the input file and every output is printed out on the console and simultaneously written into the output file using file handling. The functions used in the code are explained below:
+
+help() : This function is used to help in splitting the received input tuple with triplet values into individual values and store them as the RideNumber, RideCost and TripDuration respectively.
+
+case1(): This function is invoked to run the Insert case, in this a node is created in the Red Black Tree and if the ride number is unique a node is inserted in the min heap if not then it raises a ‘Duplicate RideNumber’ alert and prints that message.
+
+case2(): This function is invoked to run the print ride case, this runs on the basis if the arguments passed is one or two. If only one argument is passed this indicates that we need to print those three triplets so a search operation from the Red Black Tree file is invoked to look 
+out for a node with the corresponding node that particular ride number and then it is printed, if not 0,0,0 is printed. In case two arguments are passed then all the triplets for all rides between those two input ride numbers are printed.
+
+case3(): This function is invoked to run the update trip case which invokes the search function from the Red Black Tree file to look out for a node with the corresponding node with that ride number. Next the update trip function is invoked from both min heap and Red Black Tree files with the new updates node and new trip duration.
+
+case4(): This function is invoked to run the cancel ride case, it searches for a node with the given ride number that is to be deleted, if it is not a leaf node then the cancel ride function is invoked from both min heap and Red Black Tree files.
+
+case5(): This function is invoked to run the Get next ride case, a node is returned with smallest cost if more than one node has the same cost the tie is broken based on trip duration and the cancel ride is invoked by passing its trip duration as parameter if not then ‘No active ride requests’ message is printed.
+
